@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Before Trilogy — 爱在三部曲</title>
-<!-- 使用 fonts.font.im 镜像（国内可访问的 Google Fonts 代理） -->
 <link href="https://fonts.font.im/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
-  /* 字体降级方案：若镜像也无法加载，fallback 到衬线字体 */
   @font-face {
     font-family: 'Cormorant Garamond';
     font-style: normal;
@@ -28,7 +26,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -38,7 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -84,10 +80,7 @@
     animation: fadeUp 1s 0.5s ease forwards;
   }
 
-  .hero-title em {
-    font-style: italic;
-    color: var(--rust);
-  }
+  .hero-title em { font-style: italic; color: var(--rust); }
 
   .hero-subtitle {
     font-family: 'Cormorant Garamond', Georgia, serif;
@@ -108,9 +101,7 @@
     animation: fadeUp 1s 1.1s ease forwards;
   }
 
-  .hero-meta-item {
-    text-align: center;
-  }
+  .hero-meta-item { text-align: center; }
 
   .hero-meta-year {
     font-family: 'Cinzel', serif;
@@ -135,6 +126,22 @@
     align-self: center;
   }
 
+  .hero-curated {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--light-muted);
+    text-transform: uppercase;
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 1s 1.4s ease forwards;
+  }
+
+  .hero-curated em {
+    font-style: normal;
+    color: var(--muted);
+  }
+
   .scroll-hint {
     position: absolute;
     bottom: 36px;
@@ -145,13 +152,11 @@
     letter-spacing: 0.3em;
     color: var(--light-muted);
     opacity: 0;
-    animation: fadeUp 1s 1.6s ease forwards, pulse 2.5s 2.5s ease-in-out infinite;
+    animation: fadeUp 1s 1.8s ease forwards, pulse 2.5s 2.8s ease-in-out infinite;
   }
 
-  /* ── SECTION HEADERS ── */
-  .film-section {
-    padding: 100px 0 60px;
-  }
+  .film-section { padding: 100px 0 60px; }
+  .film-section:nth-child(even) { background: var(--warm-white); }
 
   .film-header {
     display: grid;
@@ -163,18 +168,9 @@
     padding: 0 40px;
   }
 
-  .film-header-line {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--border));
-  }
-
-  .film-header-line:last-child {
-    background: linear-gradient(to left, transparent, var(--border));
-  }
-
-  .film-header-center {
-    text-align: center;
-  }
+  .film-header-line { height: 1px; background: linear-gradient(to right, transparent, var(--border)); }
+  .film-header-line:last-child { background: linear-gradient(to left, transparent, var(--border)); }
+  .film-header-center { text-align: center; }
 
   .film-number {
     font-family: 'Cinzel', serif;
@@ -193,10 +189,7 @@
     color: var(--deep-ink);
   }
 
-  .film-title em {
-    font-style: italic;
-    color: var(--rust);
-  }
+  .film-title em { font-style: italic; color: var(--rust); }
 
   .film-year {
     font-family: 'Cinzel', serif;
@@ -207,14 +200,12 @@
     margin-top: 10px;
   }
 
-  /* ── QUOTES ── */
   .quotes-grid {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
   .quote-block {
@@ -226,17 +217,10 @@
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    position: relative;
   }
 
-  .quote-block:first-child {
-    border-top: 1px solid var(--border);
-  }
-
-  .quote-block.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .quote-block:first-child { border-top: 1px solid var(--border); }
+  .quote-block.visible { opacity: 1; transform: translateY(0); }
 
   .quote-index {
     font-family: 'Cinzel', serif;
@@ -247,9 +231,7 @@
     text-align: right;
   }
 
-  .quote-content {
-    position: relative;
-  }
+  .quote-content { position: relative; }
 
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
@@ -275,11 +257,20 @@
   }
 
   .quote-text-zh {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: clamp(14px, 1.6vw, 17px);
+    font-size: clamp(13px, 1.5vw, 16px);
     color: var(--muted);
-    margin-top: 16px;
-    line-height: 1.7;
+    margin-top: 14px;
+    line-height: 1.8;
+    padding-left: 10px;
+  }
+
+  .quote-text-de {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.5vw, 16px);
+    color: var(--light-muted);
+    margin-top: 8px;
+    line-height: 1.8;
     padding-left: 10px;
   }
 
@@ -287,7 +278,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 24px;
+    margin-top: 22px;
     padding-left: 10px;
   }
 
@@ -307,12 +298,6 @@
     text-transform: uppercase;
   }
 
-  /* ── SECTION BG ALTERNATING ── */
-  .film-section:nth-child(even) {
-    background: var(--warm-white);
-  }
-
-  /* ── CLOSING ── */
   .closing {
     padding: 120px 40px;
     text-align: center;
@@ -341,9 +326,7 @@
     z-index: 1;
   }
 
-  .closing-quote em {
-    color: var(--gold);
-  }
+  .closing-quote em { color: var(--gold); }
 
   .closing-attribution {
     font-family: 'Cinzel', serif;
@@ -359,13 +342,22 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 15px;
-    color: rgba(245,240,232,0.5);
+    color: rgba(245,240,232,0.4);
     margin-top: 12px;
     position: relative;
     z-index: 1;
   }
 
-  /* ── ANIMATIONS ── */
+  .closing-curated {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: rgba(245,240,232,0.25);
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -376,7 +368,6 @@
     50%       { opacity: 0.9; }
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
     .quote-block { grid-template-columns: 1fr; }
     .quote-index { text-align: left; margin-bottom: -12px; }
@@ -389,7 +380,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <p class="hero-eyebrow">Richard Linklater · Ethan Hawke · Julie Delpy</p>
   <h1 class="hero-title">Before<br><em>Trilogy</em></h1>
@@ -410,6 +400,7 @@
       <div class="hero-meta-film">Before Midnight</div>
     </div>
   </div>
+  <p class="hero-curated">Curated by <em>Laurence Dang</em></p>
   <p class="scroll-hint">↓ &nbsp; scroll</p>
 </section>
 
@@ -420,11 +411,10 @@
     <div class="film-header-center">
       <span class="film-number">I &nbsp;/&nbsp; III</span>
       <h2 class="film-title">Before <em>Sunrise</em></h2>
-      <span class="film-year">1995 &nbsp;·&nbsp; 维也纳</span>
+      <span class="film-year">1995 &nbsp;·&nbsp; 维也纳 &nbsp;·&nbsp; Wien</span>
     </div>
     <div class="film-header-line"></div>
   </div>
-
   <div class="quotes-grid">
 
     <div class="quote-block">
@@ -433,6 +423,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I believe if there's any kind of God it wouldn't be in any of us — not you or me — but just this little space in between.</p>
         <p class="quote-text-zh">我相信如果真有所谓的神，它不在你我身上——而是在我们之间这一小片空间里。</p>
+        <p class="quote-text-de">Ich glaube, wenn es irgendeinen Gott gibt, dann nicht in uns — nicht in dir oder mir — sondern nur in diesem kleinen Raum dazwischen.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -443,6 +434,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I always feel this pressure of being a strong and independent icon of womanhood, and without making it look my whole… you know what I mean?</p>
         <p class="quote-text-zh">我总感到一种压力，要成为一个坚强独立的女性符号，同时又不让它变成我的全部……你懂我的意思吧？</p>
+        <p class="quote-text-de">Ich spüre immer diesen Druck, ein starkes, unabhängiges Vorbild der Weiblichkeit zu sein — ohne es zu meinem ganzen Wesen zu machen… weißt du, was ich meine?</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -453,6 +445,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">Isn't everything we do in life a way to be loved a little more?</p>
         <p class="quote-text-zh">我们这一生所做的一切，不都是为了能多被爱一点吗？</p>
+        <p class="quote-text-de">Ist nicht alles, was wir im Leben tun, ein Weg, ein wenig mehr geliebt zu werden?</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -463,6 +456,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I want to keep talking to you. I have no idea what you're talking about half the time, but I don't care. I find it really exciting.</p>
         <p class="quote-text-zh">我想一直和你说话。你说的很多我都不懂，但我不在乎。我觉得这真的很令人心动。</p>
+        <p class="quote-text-de">Ich möchte weiter mit dir reden. Die Hälfte von dem, was du sagst, verstehe ich nicht — aber das ist mir egal. Ich finde es wirklich aufregend.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -473,6 +467,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">You know what's so good about the truth? Everyone knows what it is however long they've lived without it. No one forgets the truth — they just get better at lying.</p>
         <p class="quote-text-zh">你知道真相有什么好的吗？无论一个人多久没碰过它，每个人都知道真相是什么。没人会忘记真相——只是人们越来越擅长撒谎而已。</p>
+        <p class="quote-text-de">Weißt du, was so gut an der Wahrheit ist? Jeder weiß, was sie ist, egal wie lange er ohne sie gelebt hat. Niemand vergisst die Wahrheit — man wird nur besser im Lügen.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -483,6 +478,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I always have this strange feeling that I'm this very old woman, lying down, about to die, and this life is her memories. This entire life, it's just her memories.</p>
         <p class="quote-text-zh">我总有一种奇怪的感觉，仿佛我是一个垂垂老矣、即将离世的老妇人，而这一生只是她临终前的回忆。这整个人生，不过是她的记忆。</p>
+        <p class="quote-text-de">Ich habe immer dieses seltsame Gefühl, eine sehr alte Frau zu sein, die daliegt und stirbt — und dieses Leben sind ihre Erinnerungen. Dieses ganze Leben ist nur ihre Erinnerung.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -493,6 +489,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">You know, I have this idea that if we… if we are all alone and if we are all potentially connected by our imaginations, there's this notion that I find compelling.</p>
         <p class="quote-text-zh">你知道吗，我有个想法——如果我们都是孤独的个体，又都能通过想象彼此相连，这个念头让我着迷。</p>
+        <p class="quote-text-de">Weißt du, ich habe diese Idee — wenn wir alle allein sind und alle durch unsere Vorstellungskraft miteinander verbunden sein könnten, dann ist das ein Gedanke, den ich überzeugend finde.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -503,6 +500,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I came here — I came here with no money, I have no idea what I'm doing with my life — but I know it's right. It's just right.</p>
         <p class="quote-text-zh">我来了——身无分文，不知道自己的人生该往哪走——但我知道这样做是对的。就是对的。</p>
+        <p class="quote-text-de">Ich bin hergekommen — ohne Geld, ohne zu wissen, was ich mit meinem Leben anfange — aber ich weiß, dass es richtig ist. Es ist einfach richtig.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -517,11 +515,10 @@
     <div class="film-header-center">
       <span class="film-number">II &nbsp;/&nbsp; III</span>
       <h2 class="film-title">Before <em>Sunset</em></h2>
-      <span class="film-year">2004 &nbsp;·&nbsp; 巴黎</span>
+      <span class="film-year">2004 &nbsp;·&nbsp; 巴黎 &nbsp;·&nbsp; Paris</span>
     </div>
     <div class="film-header-line"></div>
   </div>
-
   <div class="quotes-grid">
 
     <div class="quote-block">
@@ -530,6 +527,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I feel like this is a dream and I'm afraid you're going to evaporate on me.</p>
         <p class="quote-text-zh">我感觉这一切像在梦里，我害怕你会就此消散。</p>
+        <p class="quote-text-de">Ich habe das Gefühl, das ist ein Traum — und ich habe Angst, dass du einfach vor mir verdampfst.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -540,6 +538,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">Maybe what I'm saying is, is the world is a better place because we made a very nice connection a long time ago.</p>
         <p class="quote-text-zh">也许我想说的是——这个世界因为我们很久以前那次美好的相遇，变得好了那么一点点。</p>
+        <p class="quote-text-de">Vielleicht will ich sagen, dass die Welt ein besserer Ort ist, weil wir uns vor langer Zeit so wunderbar begegnet sind.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -550,6 +549,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">You know what's the worst thing about somebody breaking up with you? Is when you remember how little you cried when your pets died.</p>
         <p class="quote-text-zh">你知道分手最糟糕的是什么吗？是你突然意识到，当年你的宠物死去时你哭得有多少——而现在你哭得更多。</p>
+        <p class="quote-text-de">Weißt du, was das Schlimmste daran ist, wenn jemand mit dir Schluss macht? Wenn du dich erinnerst, wie wenig du geweint hast, als dein Haustier gestorben ist.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -560,6 +560,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I was having this awful nightmare that I was 32, and then I woke up and I was 23. So relieved. And then I woke up for real and I was 32.</p>
         <p class="quote-text-zh">我做了个噩梦，梦到自己32岁了，然后我醒来，发现自己只有23岁，松了口气。然后我真正醒来——我他妈的真的32岁了。</p>
+        <p class="quote-text-de">Ich hatte diesen schrecklichen Albtraum, dass ich 32 war. Dann wachte ich auf und war 23. Erleichterung. Dann wachte ich wirklich auf — und war 32.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -570,6 +571,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I guess when you're young, you just believe there'll be many people with whom you'll connect with. Later in life, you realize it only happens a few times.</p>
         <p class="quote-text-zh">我想年轻时，你总以为会遇到很多能与你心意相通的人。年岁渐长才明白，那种相遇，其实寥寥无几。</p>
+        <p class="quote-text-de">Wenn man jung ist, glaubt man, es wird viele Menschen geben, mit denen man sich verbindet. Später erkennt man, dass es nur ein paarmal passiert.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -580,6 +582,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I want to write a song as beautiful as this city. Every note just in the right place. Like it couldn't have been any other way.</p>
         <p class="quote-text-zh">我想写一首和这座城市一样美的歌。每一个音符都恰到好处。仿佛它只能是这样，不可能是别的样子。</p>
+        <p class="quote-text-de">Ich möchte ein Lied schreiben, das so schön ist wie diese Stadt. Jede Note genau an der richtigen Stelle. Als könnte es nicht anders sein.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -590,6 +593,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">Baby, you are gonna miss that plane.</p>
         <p class="quote-text-zh">亲爱的，你会错过那班飞机的。</p>
+        <p class="quote-text-de">Baby, du wirst dieses Flugzeug verpassen.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -604,11 +608,10 @@
     <div class="film-header-center">
       <span class="film-number">III &nbsp;/&nbsp; III</span>
       <h2 class="film-title">Before <em>Midnight</em></h2>
-      <span class="film-year">2013 &nbsp;·&nbsp; 希腊</span>
+      <span class="film-year">2013 &nbsp;·&nbsp; 希腊 &nbsp;·&nbsp; Griechenland</span>
     </div>
     <div class="film-header-line"></div>
   </div>
-
   <div class="quotes-grid">
 
     <div class="quote-block">
@@ -617,6 +620,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">If you want love, then this is it. This is real life. It's not perfect, but it's real.</p>
         <p class="quote-text-zh">如果你想要爱，那就是这个了。这就是真实的生活。它不完美，但它是真实的。</p>
+        <p class="quote-text-de">Wenn du Liebe willst, dann ist das hier die Liebe. Das ist das echte Leben. Es ist nicht perfekt, aber es ist echt.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -627,6 +631,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I've been thinking about something. Time is the one thing we all have equally, and also the one thing we can never get back.</p>
         <p class="quote-text-zh">我一直在想一件事。时间是我们每个人拥有的唯一平等之物，也是我们永远无法夺回的唯一之物。</p>
+        <p class="quote-text-de">Ich denke an etwas. Zeit ist das Einzige, das wir alle gleichermaßen haben — und auch das Einzige, das wir niemals zurückbekommen können.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -637,6 +642,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">You want to get rid of me so you can get back to your life. But I am your life.</p>
         <p class="quote-text-zh">你想甩掉我，回到你自己的生活。但我就是你的生活。</p>
+        <p class="quote-text-de">Du willst mich loswerden, damit du zu deinem Leben zurückkehren kannst. Aber ich bin dein Leben.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -647,6 +653,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I thought I was riding next to the most attractive man I'd ever seen, and I got off that train… Look at me. I have no regrets.</p>
         <p class="quote-text-zh">我以为我坐在我见过的最迷人的男人旁边，于是我下了那列火车……看看我。我毫无遗憾。</p>
+        <p class="quote-text-de">Ich dachte, ich sitze neben dem attraktivsten Mann, den ich je gesehen habe — und stieg aus dem Zug aus… Sieh mich an. Ich bereue nichts.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -657,6 +664,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">We appear and we disappear, and we are so important to some and completely forgotten by others.</p>
         <p class="quote-text-zh">我们出现，我们消失，对某些人来说我们无比重要，对另一些人来说我们早已被彻底遗忘。</p>
+        <p class="quote-text-de">Wir erscheinen und wir verschwinden — für manche sind wir so wichtig, von anderen werden wir vollständig vergessen.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Patrick</span></div>
       </div>
     </div>
@@ -667,6 +675,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">Before I met you, I was just living my life, and then I met you, and I feel like I've been running a little off-balance ever since.</p>
         <p class="quote-text-zh">遇见你之前，我只是在过自己的日子。遇见你之后，我感觉自己就一直没能站稳过。</p>
+        <p class="quote-text-de">Bevor ich dich traf, lebte ich einfach mein Leben. Dann traf ich dich — und seitdem habe ich das Gefühl, leicht aus dem Gleichgewicht zu sein.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -677,6 +686,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">I'm not the same girl you met on a train. I'm not. I have changed. I've grown up and I'm different. But you are too.</p>
         <p class="quote-text-zh">我不再是你在火车上遇见的那个女孩了。我不是。我已经改变了，我长大了，我不一样了。但你也是。</p>
+        <p class="quote-text-de">Ich bin nicht mehr das Mädchen, das du im Zug getroffen hast. Das bin ich nicht. Ich habe mich verändert, ich bin erwachsen geworden, ich bin anders. Aber du auch.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Céline</span></div>
       </div>
     </div>
@@ -687,6 +697,7 @@
         <span class="quote-mark">"</span>
         <p class="quote-text">Just let me search for this one moment, just this… like right now, right here. That's all I want.</p>
         <p class="quote-text-zh">就让我抓住这一个瞬间，就这一个……就像现在，就在这里。这就是我想要的全部。</p>
+        <p class="quote-text-de">Lass mich nur diesen einen Moment festhalten, genau diesen… wie jetzt, genau hier. Das ist alles, was ich will.</p>
         <div class="quote-speaker"><span class="speaker-dot"></span><span class="speaker-name">Jesse</span></div>
       </div>
     </div>
@@ -694,7 +705,6 @@
   </div>
 </section>
 
-<!-- CLOSING -->
 <section class="closing">
   <p class="closing-quote">
     We are all <em>just passing through</em>.<br>
@@ -702,22 +712,19 @@
   </p>
   <p class="closing-attribution">BEFORE SUNRISE · 1995</p>
   <p class="closing-director">Directed by Richard Linklater</p>
+  <p class="closing-curated">Curated by Laurence Dang</p>
 </section>
 
 <script>
-  // Scroll-triggered fade-in for quote blocks
   const blocks = document.querySelectorAll('.quote-block');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
+        setTimeout(() => entry.target.classList.add('visible'), 80);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
-
+  }, { threshold: 0.12 });
   blocks.forEach(b => observer.observe(b));
 </script>
 
